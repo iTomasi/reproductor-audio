@@ -84,12 +84,16 @@ const CardAudio = ({ audioUrl }: ICardAudioProps) => {
     useEffect(() => {
         const generatingBars = 30;
 
+        const arrayBars: number[] = [];
+
         for (let i = 0; i < generatingBars; i++) {
             const randomNumber = Math.floor((Math.random() + 0.2) * 85);
 
-            setBarsWave((prev) => [...prev, randomNumber]);
+            arrayBars.push(randomNumber);
         }
-    }, []);
+
+        setBarsWave(arrayBars);
+    }, [audioUrl]);
 
     const handlePlayBtn = () => {
         if (theAudio.isPaused) {
