@@ -3,6 +3,9 @@
     border-radius: 10px;
     padding: 10px;
     color: #f9f9f9;
+    margin-top: 20px;
+    width: 100%;
+    overflow: hidden;
 
     .iws_userInfo {
         display: flex;
@@ -36,8 +39,8 @@
             font-size: 20px;
             background: #f9f9f9;
             color: #8346fe;
-            height: 40px;
-            width: 40px;
+            min-height: 40px;
+            min-width: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -81,5 +84,11 @@
     .iws_time {
         display: flex;
         color: #ccc;
+    }
+}
+
+@media screen and (min-width: 530px) {
+    .iw_cardAudio {
+        width: 500px;
     }
 }

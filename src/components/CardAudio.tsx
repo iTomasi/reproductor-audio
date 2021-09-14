@@ -82,7 +82,7 @@ const CardAudio = ({ audioUrl }: ICardAudioProps) => {
     }, [audioUrl]);
 
     useEffect(() => {
-        const generatingBars = 30;
+        const generatingBars = 43;
 
         const arrayBars: number[] = [];
 
@@ -122,7 +122,7 @@ const CardAudio = ({ audioUrl }: ICardAudioProps) => {
                     alt="profile_pic"
                 />
                 <h5>
-                    El Tomate <span>@iTomasi</span>
+                    Mis Fans <span>@MisFans</span>
                 </h5>
             </div>
 

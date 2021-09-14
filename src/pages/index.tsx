@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+// Next
+import Link from "next/link";
+
 // Components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faMicrophone,
-    faMicrophoneSlash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import CardAudio from "components/CardAudio";
+import QuestionCard from "components/QuestionCard";
 
 const Index = () => {
     const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder>(null);
@@ -18,6 +19,8 @@ const Index = () => {
 
     useEffect(() => {
         const effectFunc = async () => {
+            console.log(navigator.mediaDevices);
+
             const navigatorAudio = await navigator.mediaDevices.getUserMedia({
                 audio: true,
             });
@@ -72,23 +75,49 @@ const Index = () => {
 
     return (
         <div className="iw_home">
-            <button
-                className="iws_recordBtn"
-                type="button"
-                onClick={
-                    theAudio.isRecording
-                        ? handleStopAudioBtn
-                        : handleRecordAudioBtn
-                }
-            >
-                <FontAwesomeIcon
-                    icon={
-                        theAudio.isRecording ? faMicrophoneSlash : faMicrophone
-                    }
-                />
-            </button>
+            <div className="iws_left">
+                <h2>
+                    Pregúntale lo que siempre quisiste saber a tu creador
+                    favorito y recibe un audio con la respuesta
+                </h2>
 
-            <CardAudio audioUrl={theAudio.url} />
+                <h4>
+                    Un experimento de{" "}
+                    <Link href="https://mis.fans">
+                        <a target="_blank">Mis Fans</a>
+                    </Link>
+                </h4>
+            </div>
+
+            <div className="iws_right">
+                <QuestionCard />
+                <CardAudio audioUrl={theAudio.url} />
+
+                {!theAudio.url && (
+                    <button
+                        className={`iws_recordBtn ${
+                            theAudio.isRecording ? "active" : "noactive"
+                        }`}
+                        type="button"
+                        onClick={
+                            theAudio.isRecording
+                                ? handleStopAudioBtn
+                                : handleRecordAudioBtn
+                        }
+                    >
+                        <FontAwesomeIcon
+                            className="iws_icon"
+                            icon={faMicrophone}
+                        />
+
+                        <span>
+                            {theAudio.isRecording
+                                ? "Grabando..."
+                                : "Grabar una respuesta"}
+                        </span>
+                    </button>
+                )}
+            </div>
         </div>
     );
 };

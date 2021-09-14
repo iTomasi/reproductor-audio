@@ -3,22 +3,89 @@
     flex-direction: column;
     align-items: center;
     padding: 30px 0;
+    width: 95%;
+    max-width: 1500px;
+    margin: auto;
 
-    .iws_recordBtn {
-        font-size: 40px;
-        background: #ffffff;
-        border: none;
-        outline: none;
-        width: 70px;
-        height: 70px;
-        border-radius: 1000px;
-        cursor: pointer;
-        transition-property: transform;
-        transition-duration: 0.3s;
-        margin-bottom: 50px;
+    .iws_left {
+        margin-bottom: 30px;
+        text-align: center;
 
-        &:hover {
-            transform: scale(1.1);
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            color: #797979;
+            font-size: 15px;
+
+            a {
+                color: #797979;
+                text-decoration: 2px underline #797979;
+            }
+        }
+    }
+
+    .iws_right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .iws_recordBtn {
+            background: #6131ff;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition-property: transform, background;
+            transition-duration: 0.3s;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 0;
+            width: 100%;
+            color: #f9f9f9;
+            margin-top: 20px;
+
+            &:hover {
+                transform: scale(1.01);
+            }
+
+            .iws_icon {
+                font-size: 20px;
+            }
+
+            span {
+                margin-left: 10px;
+                font-size: 18px;
+            }
+        }
+
+        .iws_recordBtn.active {
+            background: #fe3636;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .iw_home {
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .iws_left {
+            width: 40%;
+            text-align: left;
+
+            h2 {
+                font-size: 40px;
+            }
+        }
+
+        .iws_right {
+            width: 40%;
         }
     }
 }

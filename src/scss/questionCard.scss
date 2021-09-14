@@ -1,0 +1,47 @@
+.iw_questionCard {
+    background: #0d0d0d;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+
+    .iws_userInfo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 1000px;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 10px;
+        }
+
+        h3 {
+            font-size: 20px;
+
+            span {
+                color: #797979;
+                font-size: 18px;
+            }
+        }
+    }
+
+    p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    h5 {
+        font-size: 17px;
+        color: #797979;
+    }
+}
+
+@media screen and (min-width: 530px) {
+    .iw_questionCard {
+        width: 500px;
+    }
+}
