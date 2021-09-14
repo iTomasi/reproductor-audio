@@ -19,10 +19,14 @@ const Index = () => {
 
     useEffect(() => {
         const effectFunc = async () => {
-            console.log(navigator.mediaDevices);
+            if (!navigator.mediaDevices) {
+                console.log("no navigator.mediaDevices");
+                return;
+            }
 
             const navigatorAudio = await navigator.mediaDevices.getUserMedia({
                 audio: true,
+                video: false,
             });
 
             const mediaRecorder = new MediaRecorder(navigatorAudio);
